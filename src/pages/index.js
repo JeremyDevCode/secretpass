@@ -100,6 +100,16 @@ export default function Home() {
           </div>
         </div>
       </Card>
+      <span className="text-sm text-slate-300">
+        Developed by  
+        <a
+          className="font-medium text-orange-500 no-underline hover:underline ml-1"
+          href="https://github.com/jeremydevcode"
+          target="_blank"
+        >
+          @jeremydevcode
+        </a>
+      </span>
     </MainSection>
   );
 }
