@@ -11,6 +11,7 @@ import Slider from "../components/Slider";
 import { ToggleLabel } from "../components/ToggleLabel";
 import { ToggleSwitch } from "../components/ToggleSwitch";
 import { generateSecretPass } from "../modules/generatePass";
+import Head from "next/head";
 
 export default function Home() {
   const [password, setPassword] = useState("");
