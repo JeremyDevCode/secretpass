@@ -13,7 +13,6 @@ import { ToggleSwitch } from "../components/ToggleSwitch";
 import { generateSecretPass } from "../modules/generatePass";
 
 export default function Home() {
-
   const [password, setPassword] = useState("");
   const [passLength, setPassLength] = useState(25);
   const [lowercase, setLowercase] = useState(true);
@@ -24,20 +23,63 @@ export default function Home() {
 
   useEffect(() => {
     const newPass = generateSecretPass(
-        passLength,
-        lowercase,
-        uppercase,
-        numbers,
-        symbols,
+      passLength,
+      lowercase,
+      uppercase,
+      numbers,
+      symbols
     );
     setPassword(newPass);
-}, [passLength, lowercase, uppercase, numbers, symbols, reload]);
-
+  }, [passLength, lowercase, uppercase, numbers, symbols, reload]);
 
   return (
     <MainSection>
+      <Head>
+        <title>{"SecretPass"}</title>
+        <meta name="og:site_name" content="Jeremy Mosquera" />
+        <meta
+          name="description"
+          content="Web application to generate random passwords with the parameters and the size that you choose. It has an option to copy the password and another to regenerate a new password."
+        ></meta>
+
+        <meta itemProp="name" content="SecretPass" />
+        <meta
+          itemProp="description"
+          content="Web application to generate random passwords with the parameters and the size that you choose. It has an option to copy the password and another to regenerate a new password."
+        />
+        <meta
+          itemProp="image"
+          content="https://res.cloudinary.com/deohsoirn/image/upload/v1680329213/Portfolio/additionalImages/secretPass_n6yt8o.png"
+        />
+
+        <meta property="og:url" content="https://secretpass.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="SecretPass" />
+        <meta
+          name="og:description"
+          content="Web application to generate random passwords with the parameters and the size that you choose. It has an option to copy the password and another to regenerate a new password."
+        ></meta>
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/deohsoirn/image/upload/v1680329213/Portfolio/additionalImages/secretPass_n6yt8o.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="213" />
+        <meta property="og:image:height" content="184" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SecretPass" />
+        <meta
+          name="twitter:description"
+          content="Web application to generate random passwords with the parameters and the size that you choose. It has an option to copy the password and another to regenerate a new password."
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/deohsoirn/image/upload/v1680329213/Portfolio/additionalImages/secretPass_n6yt8o.png"
+        />
+      </Head>
       <Card>
-        <Brand/>
+        <Brand />
         <div className="flex flex-col gap-3">
           <div className="flex gap-2">
             <PassField value={password} setValue={setPassword} />
@@ -51,27 +93,27 @@ export default function Home() {
           <PasswordQuality length={passLength} min={4} max={64} />
         </div>
         <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-3">
-          <PassLengthLabel length={passLength} />
-          <Slider
+          <div className="flex flex-col gap-3">
+            <PassLengthLabel length={passLength} />
+            <Slider
               value={passLength}
               handleChange={(e) => setPassLength(e.target.value)}
               min={4}
               max={64}
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <ToggleLabel
-            content="Include lowercase characters"
-            active={lowercase}
-          />
-          <ToggleSwitch
-            active={lowercase}
-            handleClick={() => setLowercase(!lowercase)}
-            disabled={!uppercase && !numbers && !symbols}
-          />
-        </div>
-        <div className="flex items-center justify-between">
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <ToggleLabel
+              content="Include lowercase characters"
+              active={lowercase}
+            />
+            <ToggleSwitch
+              active={lowercase}
+              handleClick={() => setLowercase(!lowercase)}
+              disabled={!uppercase && !numbers && !symbols}
+            />
+          </div>
+          <div className="flex items-center justify-between">
             <ToggleLabel
               content="Include uppercase characters"
               active={uppercase}
@@ -101,9 +143,9 @@ export default function Home() {
         </div>
       </Card>
       <span className="text-sm text-slate-300">
-        Developed by  
+        Developed by
         <a
-          className="font-medium text-orange-500 no-underline hover:underline ml-1"
+          className="ml-1 font-medium text-orange-500 no-underline hover:underline"
           href="https://github.com/jeremydevcode"
           target="_blank"
         >
